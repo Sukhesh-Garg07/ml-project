@@ -1,0 +1,29 @@
+{
+  "dataset_name": "breast_cancer",
+  "raw_target_column": "Class",
+  "clean_target_column": "target",
+  "initial_row_count": 699,
+  "duplicates_removed": 236,
+  "non_predictive_columns_dropped": [],
+  "n_instances": 463,
+  "n_features": 9,
+  "categorical_columns": [],
+  "numerical_columns": [
+    "Clump_Thickness",
+    "Cell_Size_Uniformity",
+    "Cell_Shape_Uniformity",
+    "Marginal_Adhesion",
+    "Single_Epi_Cell_Size",
+    "Bare_Nuclei",
+    "Bland_Chromatin",
+    "Normal_Nucleoli",
+    "Mitoses"
+  ],
+  "categorical_ratio": 0.0,
+  "n_classes": 2,
+  "classes_mapping": {
+    "benign": 0,
+    "malignant": 1
+  },
+  "clean_csv_path": "data\\processed\\breast_cancer_clean.csv"
+}

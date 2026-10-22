@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# Data cache (optional, keep raw and processed if desired, but ignore temporary caches)
+.openml/
+.pytest_cache/
+*.log

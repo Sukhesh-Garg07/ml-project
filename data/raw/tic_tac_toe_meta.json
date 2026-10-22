@@ -1,0 +1,27 @@
+{
+  "dataset_name": "tic_tac_toe",
+  "dataset_id": 50,
+  "openml_name": "tic-tac-toe",
+  "target_column": "Class",
+  "categorical_columns": [
+    "top-left-square",
+    "top-middle-square",
+    "top-right-square",
+    "middle-left-square",
+    "middle-middle-square",
+    "middle-right-square",
+    "bottom-left-square",
+    "bottom-middle-square",
+    "bottom-right-square"
+  ],
+  "numerical_columns": [],
+  "n_rows": 958,
+  "n_features": 9,
+  "n_categorical": 9,
+  "n_numerical": 0,
+  "categorical_ratio": 1.0,
+  "classes": [
+    "positive",
+    "negative"
+  ]
+}

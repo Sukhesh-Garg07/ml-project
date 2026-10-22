@@ -1,0 +1,29 @@
+{
+  "dataset_name": "tic_tac_toe",
+  "raw_target_column": "Class",
+  "clean_target_column": "target",
+  "initial_row_count": 958,
+  "duplicates_removed": 0,
+  "non_predictive_columns_dropped": [],
+  "n_instances": 958,
+  "n_features": 9,
+  "categorical_columns": [
+    "top-left-square",
+    "top-middle-square",
+    "top-right-square",
+    "middle-left-square",
+    "middle-middle-square",
+    "middle-right-square",
+    "bottom-left-square",
+    "bottom-middle-square",
+    "bottom-right-square"
+  ],
+  "numerical_columns": [],
+  "categorical_ratio": 1.0,
+  "n_classes": 2,
+  "classes_mapping": {
+    "negative": 0,
+    "positive": 1
+  },
+  "clean_csv_path": "data\\processed\\tic_tac_toe_clean.csv"
+}

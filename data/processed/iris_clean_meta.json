@@ -1,0 +1,25 @@
+{
+  "dataset_name": "iris",
+  "raw_target_column": "class",
+  "clean_target_column": "target",
+  "initial_row_count": 150,
+  "duplicates_removed": 3,
+  "non_predictive_columns_dropped": [],
+  "n_instances": 147,
+  "n_features": 4,
+  "categorical_columns": [],
+  "numerical_columns": [
+    "sepallength",
+    "sepalwidth",
+    "petallength",
+    "petalwidth"
+  ],
+  "categorical_ratio": 0.0,
+  "n_classes": 3,
+  "classes_mapping": {
+    "Iris-setosa": 0,
+    "Iris-versicolor": 1,
+    "Iris-virginica": 2
+  },
+  "clean_csv_path": "data\\processed\\iris_clean.csv"
+}

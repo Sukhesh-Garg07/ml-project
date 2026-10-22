@@ -1,0 +1,23 @@
+{
+  "dataset_name": "iris",
+  "dataset_id": 61,
+  "openml_name": "iris",
+  "target_column": "class",
+  "categorical_columns": [],
+  "numerical_columns": [
+    "sepallength",
+    "sepalwidth",
+    "petallength",
+    "petalwidth"
+  ],
+  "n_rows": 150,
+  "n_features": 4,
+  "n_categorical": 0,
+  "n_numerical": 4,
+  "categorical_ratio": 0.0,
+  "classes": [
+    "Iris-setosa",
+    "Iris-versicolor",
+    "Iris-virginica"
+  ]
+}

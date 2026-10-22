@@ -1,0 +1,24 @@
+{
+  "dataset_name": "blood_transfusion",
+  "raw_target_column": "Class",
+  "clean_target_column": "target",
+  "initial_row_count": 748,
+  "duplicates_removed": 215,
+  "non_predictive_columns_dropped": [],
+  "n_instances": 533,
+  "n_features": 4,
+  "categorical_columns": [],
+  "numerical_columns": [
+    "V1",
+    "V2",
+    "V3",
+    "V4"
+  ],
+  "categorical_ratio": 0.0,
+  "n_classes": 2,
+  "classes_mapping": {
+    "1": 0,
+    "2": 1
+  },
+  "clean_csv_path": "data\\processed\\blood_transfusion_clean.csv"
+}

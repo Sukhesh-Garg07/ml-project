@@ -1,0 +1,41 @@
+{
+  "dataset_name": "segment",
+  "raw_target_column": "class",
+  "clean_target_column": "target",
+  "initial_row_count": 2310,
+  "duplicates_removed": 266,
+  "non_predictive_columns_dropped": [],
+  "n_instances": 2044,
+  "n_features": 16,
+  "categorical_columns": [],
+  "numerical_columns": [
+    "short.line.density.5",
+    "short.line.density.2",
+    "vedge.mean",
+    "vegde.sd",
+    "hedge.mean",
+    "hedge.sd",
+    "intensity.mean",
+    "rawred.mean",
+    "rawblue.mean",
+    "rawgreen.mean",
+    "exred.mean",
+    "exblue.mean",
+    "exgreen.mean",
+    "value.mean",
+    "saturation.mean",
+    "hue.mean"
+  ],
+  "categorical_ratio": 0.0,
+  "n_classes": 7,
+  "classes_mapping": {
+    "brickface": 0,
+    "cement": 1,
+    "foliage": 2,
+    "grass": 3,
+    "path": 4,
+    "sky": 5,
+    "window": 6
+  },
+  "clean_csv_path": "data\\processed\\segment_clean.csv"
+}

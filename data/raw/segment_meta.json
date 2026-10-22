@@ -1,0 +1,39 @@
+{
+  "dataset_name": "segment",
+  "dataset_id": 40984,
+  "openml_name": "segment",
+  "target_column": "class",
+  "categorical_columns": [],
+  "numerical_columns": [
+    "short.line.density.5",
+    "short.line.density.2",
+    "vedge.mean",
+    "vegde.sd",
+    "hedge.mean",
+    "hedge.sd",
+    "intensity.mean",
+    "rawred.mean",
+    "rawblue.mean",
+    "rawgreen.mean",
+    "exred.mean",
+    "exblue.mean",
+    "exgreen.mean",
+    "value.mean",
+    "saturation.mean",
+    "hue.mean"
+  ],
+  "n_rows": 2310,
+  "n_features": 16,
+  "n_categorical": 0,
+  "n_numerical": 16,
+  "categorical_ratio": 0.0,
+  "classes": [
+    "path",
+    "foliage",
+    "sky",
+    "grass",
+    "brickface",
+    "cement",
+    "window"
+  ]
+}

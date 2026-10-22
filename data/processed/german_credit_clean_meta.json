@@ -1,0 +1,41 @@
+{
+  "dataset_name": "german_credit",
+  "raw_target_column": "class",
+  "clean_target_column": "target",
+  "initial_row_count": 1000,
+  "duplicates_removed": 0,
+  "non_predictive_columns_dropped": [],
+  "n_instances": 1000,
+  "n_features": 20,
+  "categorical_columns": [
+    "checking_status",
+    "credit_history",
+    "purpose",
+    "savings_status",
+    "employment",
+    "personal_status",
+    "other_parties",
+    "property_magnitude",
+    "other_payment_plans",
+    "housing",
+    "job",
+    "own_telephone",
+    "foreign_worker"
+  ],
+  "numerical_columns": [
+    "duration",
+    "credit_amount",
+    "installment_commitment",
+    "residence_since",
+    "age",
+    "existing_credits",
+    "num_dependents"
+  ],
+  "categorical_ratio": 0.65,
+  "n_classes": 2,
+  "classes_mapping": {
+    "bad": 0,
+    "good": 1
+  },
+  "clean_csv_path": "data\\processed\\german_credit_clean.csv"
+}
