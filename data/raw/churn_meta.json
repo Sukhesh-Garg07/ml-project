@@ -1,0 +1,39 @@
+{
+  "dataset_name": "churn",
+  "dataset_id": 40701,
+  "openml_name": "churn",
+  "target_column": "class",
+  "categorical_columns": [
+    "area_code",
+    "international_plan",
+    "voice_mail_plan",
+    "number_customer_service_calls"
+  ],
+  "numerical_columns": [
+    "state",
+    "account_length",
+    "phone_number",
+    "number_vmail_messages",
+    "total_day_minutes",
+    "total_day_calls",
+    "total_day_charge",
+    "total_eve_minutes",
+    "total_eve_calls",
+    "total_eve_charge",
+    "total_night_minutes",
+    "total_night_calls",
+    "total_night_charge",
+    "total_intl_minutes",
+    "total_intl_calls",
+    "total_intl_charge"
+  ],
+  "n_rows": 5000,
+  "n_features": 20,
+  "n_categorical": 4,
+  "n_numerical": 16,
+  "categorical_ratio": 0.2,
+  "classes": [
+    "0",
+    "1"
+  ]
+}

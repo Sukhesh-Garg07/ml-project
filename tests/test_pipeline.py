@@ -74,6 +74,7 @@ class TestPipelineComponents(unittest.TestCase):
         X, y = load_iris(return_X_y=True)
         df_clean = pd.DataFrame(X, columns=[f"feat_{i}" for i in range(4)])
         df_clean["target"] = y
+        df_clean = df_clean.drop_duplicates().reset_index(drop=True)
 
         slices = generate_dataset_slices(df_clean, target_col="target")
         self.assertEqual(len(slices), 10)
@@ -85,13 +86,15 @@ class TestPipelineComponents(unittest.TestCase):
             "subsample_0.6",
             "subsample_0.8",
             "subsample_1.0",
-            "bootstrap_1",
-            "bootstrap_2",
-            "bootstrap_3",
-            "bootstrap_4",
-            "bootstrap_5",
+            "subsample_0.3",
+            "subsample_0.5",
+            "subsample_0.7",
+            "subsample_0.85",
+            "subsample_0.95",
         ]
         self.assertEqual(slice_ids, expected_ids)
+        for _, s_df in slices:
+            self.assertEqual(len(s_df), len(s_df.drop_duplicates()))
 
     def test_meta_feature_extraction_no_nans(self):
         X, y = load_iris(return_X_y=True)
@@ -169,6 +172,11 @@ class TestPipelineComponents(unittest.TestCase):
         self.assertIn("best_model", merged.columns)
         self.assertEqual(merged.isnull().sum().sum(), 0)
         self.assertEqual(merged.iloc[0]["best_model"], "RandomForest")
+
+    @classmethod
+    def tearDownClass(cls):
+        import shutil
+        shutil.rmtree(Path("data/test_tmp"), ignore_errors=True)
 
 
 if __name__ == "__main__":

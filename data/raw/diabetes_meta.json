@@ -1,0 +1,26 @@
+{
+  "dataset_name": "diabetes",
+  "dataset_id": 37,
+  "openml_name": "diabetes",
+  "target_column": "class",
+  "categorical_columns": [],
+  "numerical_columns": [
+    "preg",
+    "plas",
+    "pres",
+    "skin",
+    "insu",
+    "mass",
+    "pedi",
+    "age"
+  ],
+  "n_rows": 768,
+  "n_features": 8,
+  "n_categorical": 0,
+  "n_numerical": 8,
+  "categorical_ratio": 0.0,
+  "classes": [
+    "tested_positive",
+    "tested_negative"
+  ]
+}

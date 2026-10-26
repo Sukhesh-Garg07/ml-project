@@ -1,0 +1,23 @@
+{
+  "dataset_name": "phoneme",
+  "dataset_id": 1489,
+  "openml_name": "phoneme",
+  "target_column": "Class",
+  "categorical_columns": [],
+  "numerical_columns": [
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5"
+  ],
+  "n_rows": 5404,
+  "n_features": 5,
+  "n_categorical": 0,
+  "n_numerical": 5,
+  "categorical_ratio": 0.0,
+  "classes": [
+    "1",
+    "2"
+  ]
+}

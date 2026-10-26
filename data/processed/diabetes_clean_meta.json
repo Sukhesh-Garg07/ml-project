@@ -1,0 +1,28 @@
+{
+  "dataset_name": "diabetes",
+  "raw_target_column": "class",
+  "clean_target_column": "target",
+  "initial_row_count": 768,
+  "duplicates_removed": 0,
+  "non_predictive_columns_dropped": [],
+  "n_instances": 768,
+  "n_features": 8,
+  "categorical_columns": [],
+  "numerical_columns": [
+    "preg",
+    "plas",
+    "pres",
+    "skin",
+    "insu",
+    "mass",
+    "pedi",
+    "age"
+  ],
+  "categorical_ratio": 0.0,
+  "n_classes": 2,
+  "classes_mapping": {
+    "tested_negative": 0,
+    "tested_positive": 1
+  },
+  "clean_csv_path": "data\\processed\\diabetes_clean.csv"
+}

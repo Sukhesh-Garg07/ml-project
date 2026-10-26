@@ -1,0 +1,32 @@
+{
+  "dataset_name": "wine",
+  "dataset_id": 187,
+  "openml_name": "wine",
+  "target_column": "class",
+  "categorical_columns": [],
+  "numerical_columns": [
+    "Alcohol",
+    "Malic_acid",
+    "Ash",
+    "Alcalinity_of_ash",
+    "Magnesium",
+    "Total_phenols",
+    "Flavanoids",
+    "Nonflavanoid_phenols",
+    "Proanthocyanins",
+    "Color_intensity",
+    "Hue",
+    "OD280%2FOD315_of_diluted_wines",
+    "Proline"
+  ],
+  "n_rows": 178,
+  "n_features": 13,
+  "n_categorical": 0,
+  "n_numerical": 13,
+  "categorical_ratio": 0.0,
+  "classes": [
+    "1",
+    "2",
+    "3"
+  ]
+}

@@ -20,6 +20,14 @@ BENCHMARK_DATASETS: Dict[str, int] = {
     "vehicle": 54,
     "breast_cancer": 15,
     "segment": 40984,
+    "diabetes": 37,
+    "sonar": 40,
+    "spambase": 44,
+    "banknote_authentication": 1462,
+    "qsar_biodegradation": 1494,
+    "phoneme": 1489,
+    "churn": 40701,
+    "wine": 187,
 }
 
 
@@ -111,7 +119,7 @@ def fetch_all_benchmark_datasets(
     force: bool = False,
 ) -> Dict[str, Tuple[pd.DataFrame, Dict[str, Any]]]:
     """
-    Acquire all 7 benchmark classification datasets and save them to data/raw/.
+    Acquire all 15 benchmark classification datasets and save them to data/raw/.
 
     Returns:
         Dictionary mapping dataset_name -> (raw_df, metadata).

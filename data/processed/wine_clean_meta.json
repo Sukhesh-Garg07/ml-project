@@ -1,0 +1,34 @@
+{
+  "dataset_name": "wine",
+  "raw_target_column": "class",
+  "clean_target_column": "target",
+  "initial_row_count": 178,
+  "duplicates_removed": 0,
+  "non_predictive_columns_dropped": [],
+  "n_instances": 178,
+  "n_features": 13,
+  "categorical_columns": [],
+  "numerical_columns": [
+    "Alcohol",
+    "Malic_acid",
+    "Ash",
+    "Alcalinity_of_ash",
+    "Magnesium",
+    "Total_phenols",
+    "Flavanoids",
+    "Nonflavanoid_phenols",
+    "Proanthocyanins",
+    "Color_intensity",
+    "Hue",
+    "OD280%2FOD315_of_diluted_wines",
+    "Proline"
+  ],
+  "categorical_ratio": 0.0,
+  "n_classes": 3,
+  "classes_mapping": {
+    "1": 0,
+    "2": 1,
+    "3": 2
+  },
+  "clean_csv_path": "data\\processed\\wine_clean.csv"
+}

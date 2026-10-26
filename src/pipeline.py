@@ -26,10 +26,10 @@ def run_pipeline(
 ) -> pd.DataFrame:
     """
     Execute full end-to-end pipeline:
-    1. Acquire 7 OpenML benchmark classification datasets.
+    1. Acquire 15 OpenML benchmark classification datasets.
     2. Preprocess: drop duplicates, drop constant/id columns, sanitize inf to NaN,
        median/mode imputation, ordinal/label encoding (preserving raw distributions).
-    3. Generate 10 stratified slices (5 subsamples + 5 bootstraps) per dataset (~70 meta-rows).
+    3. Generate 10 stratified slices without replacement (5 deterministic + 5 randomized) per dataset (150 meta-rows).
     4. Extract structural, statistical, information-theoretic, and landmarking meta-features (X_meta).
     5. Benchmark 5 candidate base classifiers using Stratified 5-Fold CV on balanced_accuracy (y_meta).
     6. Merge X_meta and y_meta into the final meta-dataset (data/meta_dataset.csv).
@@ -63,9 +63,10 @@ def run_pipeline(
         slices = generate_dataset_slices(
             df_clean=df_clean,
             target_col="target",
-            subsample_fractions=[0.2, 0.4, 0.6, 0.8, 1.0],
-            n_bootstraps=5,
+            deterministic_fractions=[0.2, 0.4, 0.6, 0.8, 1.0],
+            randomized_fractions=[0.3, 0.5, 0.7, 0.85, 0.95],
             random_state=random_state,
+            randomized_seed=101,
         )
         all_slices[ds_name] = slices
 

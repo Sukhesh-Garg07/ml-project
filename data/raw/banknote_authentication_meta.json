@@ -1,0 +1,22 @@
+{
+  "dataset_name": "banknote_authentication",
+  "dataset_id": 1462,
+  "openml_name": "banknote-authentication",
+  "target_column": "Class",
+  "categorical_columns": [],
+  "numerical_columns": [
+    "V1",
+    "V2",
+    "V3",
+    "V4"
+  ],
+  "n_rows": 1372,
+  "n_features": 4,
+  "n_categorical": 0,
+  "n_numerical": 4,
+  "categorical_ratio": 0.0,
+  "classes": [
+    "1",
+    "2"
+  ]
+}

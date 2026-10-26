@@ -1,0 +1,41 @@
+{
+  "dataset_name": "churn",
+  "raw_target_column": "class",
+  "clean_target_column": "target",
+  "initial_row_count": 5000,
+  "duplicates_removed": 0,
+  "non_predictive_columns_dropped": [],
+  "n_instances": 5000,
+  "n_features": 20,
+  "categorical_columns": [
+    "area_code",
+    "international_plan",
+    "voice_mail_plan",
+    "number_customer_service_calls"
+  ],
+  "numerical_columns": [
+    "state",
+    "account_length",
+    "phone_number",
+    "number_vmail_messages",
+    "total_day_minutes",
+    "total_day_calls",
+    "total_day_charge",
+    "total_eve_minutes",
+    "total_eve_calls",
+    "total_eve_charge",
+    "total_night_minutes",
+    "total_night_calls",
+    "total_night_charge",
+    "total_intl_minutes",
+    "total_intl_calls",
+    "total_intl_charge"
+  ],
+  "categorical_ratio": 0.2,
+  "n_classes": 2,
+  "classes_mapping": {
+    "0": 0,
+    "1": 1
+  },
+  "clean_csv_path": "data\\processed\\churn_clean.csv"
+}

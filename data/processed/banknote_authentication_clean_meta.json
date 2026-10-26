@@ -1,0 +1,24 @@
+{
+  "dataset_name": "banknote_authentication",
+  "raw_target_column": "Class",
+  "clean_target_column": "target",
+  "initial_row_count": 1372,
+  "duplicates_removed": 24,
+  "non_predictive_columns_dropped": [],
+  "n_instances": 1348,
+  "n_features": 4,
+  "categorical_columns": [],
+  "numerical_columns": [
+    "V1",
+    "V2",
+    "V3",
+    "V4"
+  ],
+  "categorical_ratio": 0.0,
+  "n_classes": 2,
+  "classes_mapping": {
+    "1": 0,
+    "2": 1
+  },
+  "clean_csv_path": "data\\processed\\banknote_authentication_clean.csv"
+}

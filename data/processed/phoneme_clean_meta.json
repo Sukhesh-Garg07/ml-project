@@ -1,0 +1,25 @@
+{
+  "dataset_name": "phoneme",
+  "raw_target_column": "Class",
+  "clean_target_column": "target",
+  "initial_row_count": 5404,
+  "duplicates_removed": 9,
+  "non_predictive_columns_dropped": [],
+  "n_instances": 5395,
+  "n_features": 5,
+  "categorical_columns": [],
+  "numerical_columns": [
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5"
+  ],
+  "categorical_ratio": 0.0,
+  "n_classes": 2,
+  "classes_mapping": {
+    "1": 0,
+    "2": 1
+  },
+  "clean_csv_path": "data\\processed\\phoneme_clean.csv"
+}

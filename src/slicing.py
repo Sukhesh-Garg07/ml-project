@@ -1,10 +1,12 @@
 """
 Data slicing and meta-row augmentation module.
-Generates 10 stratified subsamples per dataset (fractions 0.2, 0.4, 0.6, 0.8, 1.0
-plus 5 stratified bootstrap samples) to generate diverse meta-observations.
+Generates 10 stratified slices per dataset without replacement:
+5 deterministic fractional slices (fractions [0.2, 0.4, 0.6, 0.8, 1.0] with random_state=42)
+and 5 randomized fractional slices (fractions [0.3, 0.5, 0.7, 0.85, 0.95] with random_state=101).
+Eliminates bootstrap duplicates to prevent skewing distance-based landmarkers.
 """
 
-from typing import Dict, List, Tuple, Any
+from typing import Dict, List, Tuple, Any, Optional
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import StratifiedShuffleSplit
@@ -13,59 +15,69 @@ from sklearn.model_selection import StratifiedShuffleSplit
 def generate_dataset_slices(
     df_clean: pd.DataFrame,
     target_col: str = "target",
-    subsample_fractions: List[float] = [0.2, 0.4, 0.6, 0.8, 1.0],
-    n_bootstraps: int = 5,
+    deterministic_fractions: Optional[List[float]] = None,
+    randomized_fractions: Optional[List[float]] = None,
     random_state: int = 42,
+    randomized_seed: int = 101,
+    **kwargs: Any,
 ) -> List[Tuple[str, pd.DataFrame]]:
     """
-    Generate 10 diverse stratified slices for a dataset:
-    - 5 stratified subsamples (fractions: 0.2, 0.4, 0.6, 0.8, 1.0)
-    - 5 stratified bootstrap samples (with replacement, preserving class balance)
+    Generate 10 diverse stratified slices for a dataset WITHOUT replacement:
+    - 5 deterministic fractional slices: fractions [0.2, 0.4, 0.6, 0.8, 1.0] with random_state=42.
+    - 5 randomized fractional slices: fractions [0.3, 0.5, 0.7, 0.85, 0.95] with random_state=101.
+
+    Each slice contains only distinct instances, preserving natural variance without duplicate rows.
 
     Args:
         df_clean: Cleaned DataFrame including feature columns and target column.
         target_col: Column name of target variable.
-        subsample_fractions: List of fraction values for stratified subsampling.
-        n_bootstraps: Number of stratified bootstrap samples to produce.
-        random_state: Base random seed for reproducibility.
+        deterministic_fractions: Fractions for deterministic slices (default: [0.2, 0.4, 0.6, 0.8, 1.0]).
+        randomized_fractions: Fractions for randomized slices (default: [0.3, 0.5, 0.7, 0.85, 0.95]).
+        random_state: Base random seed for deterministic slices (default: 42).
+        randomized_seed: Random seed for randomized slices (default: 101).
 
     Returns:
-        List of tuples: [(slice_id, df_slice), ...] exactly 10 slices.
+        List of tuples: [(slice_id, df_slice), ...] exactly 10 slices without replacement.
     """
+    if deterministic_fractions is None:
+        deterministic_fractions = kwargs.get("subsample_fractions", [0.2, 0.4, 0.6, 0.8, 1.0])
+    if randomized_fractions is None:
+        randomized_fractions = [0.3, 0.5, 0.7, 0.85, 0.95]
+
     slices: List[Tuple[str, pd.DataFrame]] = []
     y = df_clean[target_col].values
     X_indices = np.arange(len(df_clean))
 
-    # 1. Stratified Subsamples
-    for frac in subsample_fractions:
-        slice_id = f"subsample_{frac:.1f}"
+    # 1. 5 Deterministic Stratified Slices (random_state=42)
+    for frac in deterministic_fractions:
+        slice_id = f"subsample_{frac}"
         if np.isclose(frac, 1.0):
             df_slice = df_clean.copy().reset_index(drop=True)
         else:
             sss = StratifiedShuffleSplit(
                 n_splits=1,
                 train_size=frac,
-                random_state=random_state + int(frac * 100),
+                random_state=random_state,
             )
             train_idx, _ = next(sss.split(X_indices, y))
             df_slice = df_clean.iloc[train_idx].copy().reset_index(drop=True)
 
         slices.append((slice_id, df_slice))
 
-    # 2. Stratified Bootstrap Samples
-    unique_classes = np.unique(y)
-    for b_idx in range(1, n_bootstraps + 1):
-        slice_id = f"bootstrap_{b_idx}"
-        rng = np.random.RandomState(random_state + b_idx * 17)
-        boot_indices = []
+    # 2. 5 Randomized Stratified Slices (random_state=101)
+    for frac in randomized_fractions:
+        slice_id = f"subsample_{frac}"
+        if np.isclose(frac, 1.0):
+            df_slice = df_clean.copy().reset_index(drop=True)
+        else:
+            sss = StratifiedShuffleSplit(
+                n_splits=1,
+                train_size=frac,
+                random_state=randomized_seed,
+            )
+            train_idx, _ = next(sss.split(X_indices, y))
+            df_slice = df_clean.iloc[train_idx].copy().reset_index(drop=True)
 
-        for c in unique_classes:
-            c_indices = np.where(y == c)[0]
-            sampled_c = rng.choice(c_indices, size=len(c_indices), replace=True)
-            boot_indices.extend(sampled_c)
-
-        rng.shuffle(boot_indices)
-        df_boot = df_clean.iloc[boot_indices].copy().reset_index(drop=True)
-        slices.append((slice_id, df_boot))
+        slices.append((slice_id, df_slice))
 
     return slices
